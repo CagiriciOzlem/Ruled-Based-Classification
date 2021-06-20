@@ -13,6 +13,9 @@ The most critical point of these steps is analyzing customers' actions, feelings
 Customers whose behavior, characteristics and demographics differ from each other will not be representative of the general audience. In addition, it will be extremely complex to deal with each customer's journey through different maps. Therefore, the concept of persona gains importance.
 Just at this point, customer groups and rule-based segments that thought to represent these groups can be created with a common approach. As an output of this, improvements can be made both in customer experience points and what kind of approach will be shown for which persona and segment in marketing strategies can be discussed. 
 
+[Access to the Dataset](https://www.kaggle.com/ozlemilgun/persona)
+
+
 **Dataset Story :**
 
 •	The persona.csv dataset contains the prices of the products sold by an international game company and some demographic information of the users who buy these products.
