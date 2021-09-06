@@ -82,11 +82,11 @@ check_df(df)
 
  # Let's define a function to perform the selection of numeric and categorical variables in the data set in a parametric way.
 
+    
 def grab_col_names(dataframe, cat_th=5, car_th=20):
     """
     This function to perform the selection of numeric and categorical variables in the data set in a parametric way.
     Note: Variables with numeric data type but with categorical properties are included in categorical variables.
-
     Parameters
     ----------
     dataframe: dataframe
@@ -95,12 +95,10 @@ def grab_col_names(dataframe, cat_th=5, car_th=20):
         The threshold value for number of distinct observations in numerical variables with categorical properties.
         cat_th is used to specify that if number of distinct observations in numerical variable is less than
         cat_th, this variables can be categorized as a categorical variable.
-
     car_th: int, optional
         The threshold value for categorical variables with  a wide range of cardinality.
         If the number of distinct observations in a categorical variables is greater than car_th, this
         variable can be categorized as a categorical variable.
-
     Returns
     -------
         cat_cols: list
@@ -109,13 +107,11 @@ def grab_col_names(dataframe, cat_th=5, car_th=20):
             List of numerical variables.
         cat_but_car: list
             List of categorical variables with  a wide range of cardinality.
-
     Examples
     ------
         import seaborn as sns
         df = sns.load_dataset("iris")
         print(grab_col_names(df))
-
     Notes
     ------
         Sum of elements in lists the cat_cols,num_cols  and  cat_but_car give the total number of variables in dataframe.
@@ -126,21 +122,24 @@ def grab_col_names(dataframe, cat_th=5, car_th=20):
     num_but_cat = [col for col in dataframe.columns if dataframe[col].dtypes != "O" and
                    dataframe[col].nunique() < cat_th]
 
-    cat_but_car = [col for col in df.columns if dataframe[col].dtypes == "O" and
+    cat_but_car = [col for col in dataframe.columns if dataframe[col].dtypes == "O" and
                    dataframe[col].nunique() > car_th]
 
     cat_cols = cat_cols + num_but_cat
     cat_cols = [col for col in cat_cols if col not in cat_but_car]
 
     # num_cols
-    num_cols = [col for col in df.columns if df[col].dtypes != "O"]
+    num_cols = [col for col in dataframe.columns if dataframe[col].dtypes != "O"]
     num_cols = [col for col in num_cols if col not in num_but_cat]
 
     return {"Categorical_Data": cat_cols,
             "Numerical_Data": num_cols,
             "Categorical_But_Cardinal_Data": cat_but_car}
 
+
 grab_col_names(df)
+
+
 
 ######################## General Exploration for Categorical Data ########################
 
