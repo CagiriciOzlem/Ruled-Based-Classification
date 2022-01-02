@@ -165,7 +165,7 @@ def num_summary(dataframe,  plot=False):
     quantiles = [0.25, 0.50, 0.75, 1]
     for col_name in numerical_col:
         print("########## Summary Statistics of " +  col_name + " ############")
-        print(dataframe[numerical_col].describe(quantiles).T)
+        print(dataframe[col_name].describe(quantiles).T)
 
         if plot:
             sns.histplot(data=dataframe, x=col_name  )
